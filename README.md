@@ -22,16 +22,19 @@ BST in which every node has Balance factor of 0, -1, or 1
 
 ### What it is
  - Characteristic:
-    1. All nodes must red or blakc
-    2. The root must be blakc
-    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red)
+    1. All nodes must red or black
+    2. The root must be black
+    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red). However, it is possible for black node to have red / black children
     4. For every node **n**, every possible path from **n** to a null refference (does not point to anything) must have the same # black nodes
     5. null refference must be a black node
     
  - It's not an AVL Tree (red black tree != AVL tree) -- You may get invalid AVL tree when constructing the tree from red black tree
+ 
+### Algorithm
 
 
-
+### Time Complexity
+- height: O(logn)
 
 ## Appendix
 - Tree's height: The longest distance from the root of the tree to a leaf (Note: Distance in this case is # of edges in a path)
