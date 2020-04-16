@@ -31,7 +31,23 @@ BST in which every node has Balance factor of 0, -1, or 1
  - It's not an AVL Tree (red black tree != AVL tree) -- You may get invalid AVL tree when constructing the tree from red black tree
  
 ### Algorithm
-
+1. Red black tree tree Insertion:
+    - In general cases:
+        - Perform regular BST insertion
+            - If you see black node w/ 2 red children, recolor all 3
+                - if the parent is the root, color it black
+        - Color new node red
+        - Potentially fix tree for red black tree properties
+    - 1st case: empty tree
+        - Insert the new node as the root
+        - Color it black
+    - 2nd case: child of black node
+        - Just insert. No need to change anything
+    - 3rd case: Child of red node, **straight line**
+        - Insert -> single (left/right) AVL rotation -> recolor
+    - 4nd case: Child of red node, kink shape
+        - Rotate to make straight line, then do **straight line insertion case (3rd case)** 
+    
 
 ### Time Complexity
 - height: O(logn)
