@@ -25,12 +25,14 @@ BST in which every node has Balance factor of 0, -1, or 1
  - It's a **BST** with following characteristic:
     1. All nodes must red or black
     2. The root must be black
-    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red). However, it is possible for black node to have red / black children
+    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red). However, it is possible for black node to have red / black children. Note: Only coloring when traversing to insert the tree -- fixing the tree color only the way down. 
+        - Need to switch color if parent is black and all of children are red
+        - If the parent is red and its children are red do AVL rotation + coloring
     4. For every node **n**, every possible path from **n** to a null refference (does not point to anything) must have the same # black nodes
     5. null refference must be a black node
     
  - It's not an AVL Tree (red black tree != AVL tree) -- You may get invalid AVL tree when constructing the tree from red black tree
- 
+
 ### Algorithm
 1. Red black tree tree Insertion:
     - In general cases:
@@ -58,3 +60,4 @@ BST in which every node has Balance factor of 0, -1, or 1
 - Balance Factor: Height of right subtree - height of left subtree (BF = rh -lh)
 - A balance binary tree: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
 - Unbalanced binary tree: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
+ 
