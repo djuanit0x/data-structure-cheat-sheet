@@ -25,7 +25,7 @@ BST in which every node has Balance factor of 0, -1, or 1
  - It's a **BST** with following characteristic:
     1. All nodes must red or black
     2. The root must be black
-    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red). However, it is possible for black node to have red / black children. Note: Only coloring when traversing to insert the tree -- fixing the tree color only the way down. 
+    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red). However, it is possible for black node to have red / black children. 
         - Need to switch color if parent is black and all of children are red
         - If the parent is red and its children are red do AVL rotation + coloring
     4. For every node **n**, every possible path from **n** to a null refference (does not point to anything) must have the same # black nodes
@@ -50,6 +50,9 @@ BST in which every node has Balance factor of 0, -1, or 1
         - Insert -> single (left/right) AVL rotation -> recolor
     - 4nd case: Child of red node, kink shape
         - Rotate to make straight line, then do **straight line insertion case (3rd case)** 
+    - Important Notes
+        - Only coloring when traversing to insert the tree -- fixing the tree color only the way down.
+        - When inserting a node, nodes with invalid color do not have to be fixed or recolor if the nodes are not visited
     
 
 ### Time Complexity
