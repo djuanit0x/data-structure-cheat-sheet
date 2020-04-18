@@ -63,4 +63,7 @@ BST in which every node has Balance factor of 0, -1, or 1
 - Balance Factor: Height of right subtree - height of left subtree (BF = rh -lh)
 - A balance binary tree: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
 - Unbalanced binary tree: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
+
+---
+All notes mainly come from a [data-stucture class](https://ucsd-cse100-s20.github.io/) that I took in spring 2020 and my own experience.
  
