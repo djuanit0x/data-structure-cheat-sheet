@@ -2,6 +2,15 @@
 
 ## Tree
 
+## Treaps
+
+### What it is
+- tree + heap
+- BST with respect to **keys**
+    - For any nodes the keys are larger than all keys in the left subtree and smaller than all keys in the right subtree
+- Heap property with respect to priorities
+- The heap propery of any nodes must be larger than all priorities below
+
 ## AVL Tree
 
 ### What it is
