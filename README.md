@@ -2,7 +2,7 @@
 
 ## Tree
 
-## Treaps
+## Treap
 
 ### What it is
 - tree + heap
@@ -10,7 +10,19 @@
     - For any nodes the keys are larger than all keys in the left subtree and smaller than all keys in the right subtree
 - Heap property with respect to priorities
 - The heap propery of any nodes must be larger than all priorities below
+- 
 
+### Algoritm
+1. Treap Insertion
+    - Insert via BST insertion algoritm with respect to keys
+    - Use AVL rotations to "bubble up" to fix heap with respect to priorities
+
+## Ramdomized Search Tree
+- It's special type of **treap** where, instead of us supplying both a key and a priority for insertion, we only supply a key, and the priority for the new (key, priority ) pair is **randomly** generated for us
+
+### Time Complexity
+- Insertion: O(logN) -- average case
+- Insertion: O(N) -- worst case
 ## AVL Tree
 
 ### What it is
