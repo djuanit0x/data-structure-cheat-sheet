@@ -10,7 +10,6 @@
     - For any nodes the keys are larger than all keys in the left subtree and smaller than all keys in the right subtree
 - Heap property with respect to priorities
 - The heap propery of any nodes must be larger than all priorities below
-- 
 
 ### Algoritm
 1. Treap Insertion
