@@ -1,6 +1,27 @@
 # data-structure-cheat-sheet
 
-## Tree
+## Array List
+### Time Complexity
+- Insertion: O(1) -- unsorted array list
+- Find/Remove: O(N) --  unsorted array list
+- Remove/Insertion: O(N) -- sorted array list
+- Find: O(logN) -- sorted array list
+
+## Linked List
+### Time Complexity
+- Insertion: O(1) -- unsorted linked list
+- Insertion: O(N) -- sorted linked list
+- find/remove: O(N) -- sorted + unsorted
+
+## BST
+
+### Time Complexity
+- Find/insert/remove 0(logN), assuming self-balancing BST
+
+## Hash Table
+
+### Time Complexity
+- Insert/remove/find O(1), but need to fist perform O(k) hash where 'k' is the length of the key
 
 ## Treap
 
@@ -57,9 +78,9 @@ BST in which every node has Balance factor of 0, -1, or 1
 1. Red black tree tree Insertion:
     - In general cases:
         - Perform regular BST insertion
-            - If you see black node w/ 2 red children, recolor all 3
+            - If you see a black node w/ 2 red children, recolor all 3: 1 red parent w/ 2 black children.
                 - if the parent is the root, color it black
-        - Color new node red
+        - Color new node **red**
         - Potentially fix tree for red black tree properties
     - 1st case: empty tree
         - Insert the new node as the root
@@ -67,7 +88,7 @@ BST in which every node has Balance factor of 0, -1, or 1
     - 2nd case: child of black node
         - Just insert. No need to change anything
     - 3rd case: Child of red node, **straight line**
-        - Insert -> single (left/right) AVL rotation -> recolor
+        - Insert -> single (left/right) AVL rotation w/ grand parent node -> recolor
     - 4nd case: Child of red node, kink shape
         - Rotate to make straight line, then do **straight line insertion case (3rd case)** 
     - Important Notes
