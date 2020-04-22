@@ -83,8 +83,11 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
         - need to check does my current node have a child edge labeled by that letter 
             - If it does, traverse it until the last letter to iterate.
             - If it doesn't, it fails to remove the world -- the word does not exists in the tries.
-    -  Remove the last node, containing the last letter of the word that you want to remove. The remove is failed if **the last letter** is not a word or it does not contain the word.
+    -  Remove the last node, with the edge containing the last letter of the word that you want to remove. The remove is failed if **the last letter** is not a word or it does not contain the word.
                 
+### Time Complexity
+- find/remove/insert: O(n) where n is the length of the longest word -- worst case  
+
 ## Red Black Tree
 
 
