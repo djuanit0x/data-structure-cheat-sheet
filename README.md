@@ -58,6 +58,33 @@ BST in which every node has Balance factor of 0, -1, or 1
 ### Time Complexity
 - Insertion: O(logN) -- worst case
 
+## Trie:
+
+### What it is
+Tree structure in which elements are represented by **paths**
+If the tries have more than 2 children, you can call the tries as **Multiway Tries**
+
+## Algorithm
+
+- Multiway Tries insertion:
+    - Start at root node, and for each letters for the word that you want to insert. 
+        - Check if the current node has a child edge label by that letter. 
+            - if it does not.
+                - I need to create a new child edge labeled by that letter, then traverse down to that next child edge to continue. 
+            - Finally, the moment you finish inserting a word, you have to mark the last node as a word node.
+- Multiway Tries find:
+    - Start at root node, and for each letters for the word that you want to find. 
+        - need to check does my current node have a child edge labeled by that letter 
+            - If it does, traverse it until the last letter to iterate.
+            - If it doesn't, it fails to find the world -- the word does not exists in the tries.
+    - return true if you manage to find the word at **the last letter**, otherwise returns false
+ - Multiway Tries remove:
+    - Start at root node, and for each letters for the word that you want to remove. 
+        - need to check does my current node have a child edge labeled by that letter 
+            - If it does, traverse it until the last letter to iterate.
+            - If it doesn't, it fails to remove the world -- the word does not exists in the tries.
+    -  Remove the last node, containing the last letter of the word that you want to remove. The remove is failed if **the last letter** is not a word or it does not contain the word.
+                
 ## Red Black Tree
 
 
