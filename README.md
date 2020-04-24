@@ -142,7 +142,8 @@ Time:
 ## Tenary Search Tree (TST)
 
 ### What it is
-- A type of trie, structured in a fashion similar to **BST**.
+- A type of trie, structured in a fashion similar to **BST**. 
+- Unlike BST, \# children is up to **three children**: a middle child, left child, and right child. 
 - Serves as **a middle-ground between** the BST and the Multiway Trie (MWT) in terms of memory usages and time complexity of operations. 
 
 ### Algorithm
