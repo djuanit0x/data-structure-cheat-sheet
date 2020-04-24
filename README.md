@@ -1,26 +1,31 @@
 # data-structure-cheat-sheet
+This cheat sheet helps me to prepare my exams in a [data structures class](https://github.com/djuanit0x/data-structure-cheat-sheet#appendix) and to be my reference later in case I need it in the future. 
 
 ## Array List
-### Time Complexity
+### Complexity
+Time:
 - Insertion: O(1) -- unsorted array list
 - Find/Remove: O(N) --  unsorted array list
 - Remove/Insertion: O(N) -- sorted array list
 - Find: O(logN) -- sorted array list
 
 ## Linked List
-### Time Complexity
+### Complexity
+Time:
 - Insertion: O(1) -- unsorted linked list
 - Insertion: O(N) -- sorted linked list
 - find/remove: O(N) -- sorted + unsorted
 
 ## BST
 
-### Time Complexity
+### Complexity
+Time:
 - Find/insert/remove 0(logN), assuming self-balancing BST
 
 ## Hash Table
 
-### Time Complexity
+### Complexity
+Time:
 - Insert/remove/find O(1), but need to fist perform O(k) hash where 'k' is the length of the key
 
 ## Treap
@@ -40,7 +45,8 @@
 ## Ramdomized Search Tree
 - It's special type of **treap** where, instead of us supplying both a key and a priority for insertion, we only supply a key, and the priority for the new (key, priority ) pair is **randomly** generated for us
 
-### Time Complexity
+### Complexity
+Time:
 - Insertion: O(logN) -- average case
 - Insertion: O(N) -- worst case
 ## AVL Tree
@@ -55,7 +61,8 @@ BST in which every node has Balance factor of 0, -1, or 1
     - Fix broken balance factors using AVL rotations
         - Need to apply double AVL rotation to out balance nodes when the shape is a left/right kink shape or not straight line, otherwise just use single AVL rotation 
 
-### Time Complexity
+### Complexity
+Time:
 - Insertion: O(logN) -- worst case
 
 ## Trie:
@@ -85,7 +92,8 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
             - If it doesn't, it fails to remove the world -- the word does not exists in the tries.
     -  Remove the last node, with the edge containing the last letter of the word that you want to remove. The remove is failed if **the last letter** is not a word or it does not contain the word.
                 
-### Time Complexity
+### Complexity
+Time:
 - find/remove/insert: O(n) where n is the length of the longest word -- worst case  
 
 ## Red Black Tree
@@ -126,8 +134,48 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
         - When inserting a node, nodes with invalid color do not have to be fixed or recolor if the nodes are not visited
     
 
-### Time Complexity
+### Complexity
+Time:
 - height: O(logn)
+
+
+## Tenary Search Tree (TST)
+
+### What it is
+- A type of trie, structured in a fashion similar to **BST**.
+- Serves as **a middle-ground between** the BST and the Multiway Trie (MWT) in terms of memory usages and time complexity of operations. 
+
+### Algorithm
+1. TST Find:
+    - Steps: 
+        - If current node = root, then c = first letter of query
+        - If c > current node's letter:
+            - Traverse to right child
+        - Else if c < current node's letter:
+            - Traverse to left child
+        - Else: // Equal
+            - If c is the last letter of query and current node is a **word** node:
+                - Success!!!
+            - Else:
+                - Traverse to the middle child and go to the next letter in the query.
+        - **The word is not exist** in the TST tree If you reach here, but can't still find the word.
+
+2. TST Insert:
+    - Similar to **find** algorithm
+    - When performing TST find algorithm
+        - If you ever need to traverse to a child that does not exist, simply create a new child and traverse to it.
+        - Then, just need make the last node in the traversal a **word** node.
+4. TST Remove:
+    - Similar to **find** algorithm
+        - The difference is after performing TST Find algoritm
+        - Make the last node in the traversal **not a word node**
+        - Failed to remove if the find is failed or the last node is not a word node
+### Complexity
+Time: 
+- Insert/find/remove: O(n) -- worst case -- when the word is sorted
+- Insert/find/remove: O(logn) -- average case
+
+
 
 ## Appendix
 - Tree's height: The longest distance from the root of the tree to a leaf (Note: Distance in this case is # of edges in a path)
@@ -136,5 +184,8 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
 - Unbalanced binary tree: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
 
 ---
-All notes mainly come from a [data-stucture class](https://ucsd-cse100-s20.github.io/) that I took in spring 2020 and my own experience.
- 
+All notes mainly come from a [data-stucture class](https://ucsd-cse100-s20.github.io/), that I took in spring 2020 and my own experience.
+
+Access to online textbook from the couse is [here](https://stepik.org/course/579/syllabus).
+
+Watch class videos is [here](https://www.youtube.com/watch?v=rhpyqL5D7K0&list=PLM_KIlU0WoXmkV4QB1Dg8PtJaHTdWHwRS).
