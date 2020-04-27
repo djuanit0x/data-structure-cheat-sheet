@@ -24,9 +24,28 @@ Time:
 
 ## Hash Table
 
+### In C++
+- Implements the Set ADT
+    - Add individual element to array (depends on implementation)
+- Implements the Map ADT
+    - Add (key, value) pair to hash table (depends on implementation)
+
+### Examples
+[Birthday problem](https://en.wikipedia.org/wiki/Birthday_problem)
+
 ### Complexity
 Time:
-- Insert/remove/find O(1), but need to fist perform O(k) hash where 'k' is the length of the key
+- Insert/remove/find O(1), but need to fist perform O(k) hash where 'k' is the length of the key -- average case
+- find/insert -- worst case
+
+## Hash Functions
+
+### What it is
+- A function with:
+    - Input: An object x
+    - Output: An integer representation of x
+    - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
+    - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
 
 ## Treap
 
@@ -37,7 +56,7 @@ Time:
 - Heap property with respect to priorities
 - The heap propery of any nodes must be larger than all priorities below
 
-### Algoritm
+### Algorithm
 1. Treap Insertion
     - Insert via BST insertion algoritm with respect to keys
     - Use AVL rotations to "bubble up" to fix heap with respect to priorities
@@ -71,7 +90,7 @@ Time:
 Tree structure in which elements are represented by **paths**
 If the tries have more than 2 children, you can call the tries as **Multiway Tries**
 
-## Algorithm
+### Algorithm
 
 - Multiway Tries insertion:
     - Start at root node, and for each letters for the word that you want to insert. 
@@ -95,6 +114,7 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
 ### Complexity
 Time:
 - find/remove/insert: O(n) where n is the length of the longest word -- worst case  
+    - Length of longest word = #edges // Worst case scenario for MWT
 
 ## Red Black Tree
 
@@ -174,6 +194,7 @@ Time:
 ### Complexity
 Time: 
 - Insert/find/remove: O(n) -- worst case -- when the word is sorted
+    - (length of your alphabet + 1)*length of word // worst case for TST (**need to check**)
 - Insert/find/remove: O(logn) -- average case
 
 
