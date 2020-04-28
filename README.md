@@ -4,15 +4,20 @@ This cheat sheet helps me to prepare my exams in a [data structures class](https
 # Important Fundamental
 ## Time Complexity
 
-### What is it
+
 - Measurement how fast is your algorithm
 - Algorithm performance in terms of number of operations with respect input size
 
 ### Types
 1. Big-O: Upper Bound
-2. Big-$\Omega$: lower bound
-3. Big-$\Theta$: Both upper and lower bound 
+    - f(n) is Big-O(g(n)) if A * g(n) >= f(n) as n -> infinity
+2. Big-Omega: lower bound
+    -  f(n) is Big-Omega(g(n)) if B * g(n) <= f(n) as n -> infinity
+3. Big-Theta: Both upper and lower bound 
+    - f(n) is Big-Theta(g(n)) if f(n) is O(g(n)) and f(n) is Big-Omega(g(n))
+    - B * g(n) <= f(n) <= A * g(n)
 ## Space Complexity
+measures the amount of working storage needed for an input of size n.
 
 ## Abstract Data Type
 
@@ -36,12 +41,6 @@ Time:
 - Insertion: O(1) -- unsorted linked list
 - Insertion: O(N) -- sorted linked list
 - find/remove: O(N) -- sorted + unsorted
-
-## BST
-
-### Complexity
-Time:
-- Find/insert/remove 0(logN), assuming self-balancing BST
 
 ## Hash Table
 
@@ -67,6 +66,77 @@ Time:
     - Output: An integer representation of x
     - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
     - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
+    - Use **prime number** to evenly spread more slots in the hash table
+
+## Tree
+A graph without any **undirected cycles** (i.e., cycles that would come about if we replaced directed edges with undirected edges) nor any unconnected parts, so it's a **connected** graph
+
+### Types
+- Rooted
+    - have an implied hierarchical structure
+    - All nodes except the root have a parent
+    - All nodes have either 0, 1, or 2 children
+- UnRooted
+    - do not necessarily have an implied hierarchical structure
+    - there is no notion of parents or children. Instead, a given node has **neighbors**
+
+### Four Traverse Algorithms (O(n) worst case)
+- Pre-order (DFS)
+```javascript=
+first visit the current node, 
+    then we recurse on the left child (if one exists), 
+    and then we recurse on the right child (if one exists)
+VLR (Visit-Left-Right).
+```
+- In-order (DFS)
+```javascript=
+first recurse on the left child (if one exists), 
+    then we visit the current node, 
+    and then we recurse on the right child (if one exists). 
+LVR (Left-Visit-Right).
+```
+- Post-order (DFS)
+```javascript=
+first recurse on the left child (if one exists), 
+    then we recurse on the right child (if one exists), 
+    and then we visit the current node.
+LRV (Left-Right-Visit).
+```
+- Level-order (BFS)
+```javascript=
+visit nodes level-by-level (where the root is the 
+    "first level," its children are the "second level," etc.),
+    and on a given level, we visit nodes left-to-right. 
+1st level (left to right). 2nd level(left to right), ...etc
+```
+## Binary Search Tree
+
+### Properties
+- Rooted Binary Tree (Tree w/ 0, 1, or 2 children)
+- Every Node is larger than all nodes in its left subtree
+- Every node is smaller than all nodes in its right subtree
+
+### Algorithm
+#### BST Find
+```javascript=
+Start at the root
+If query == current => success!
+Otherwise , if query > current, traverse right and go to #2
+Otherwise, if query < current, traverse left and go to #2
+If  you ever try to traverse left/right but no such child exists => fail!    
+```
+
+#### BST Insert
+```javascript=
+Perform "find" algorithm starting at root
+If "find" succeeds, then duplicate element!
+If "find" doesn't succeed, then insert the new element 
+    at the place where the "find" algorithm fail!
+```
+
+### Complexity
+Time:
+- Find/insert/remove O(logN), assuming self-balancing BST
 
 ## Treap
 
@@ -222,6 +292,7 @@ Time:
 # Appendix [A-Z]
 - **balance binary tree**: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
 - **Balance Factor**: Height of right subtree - height of left subtree (BF = rh -lh)
+- **Graph**: a collection of nodes (or vertices) and edges connecting these nodes
 - **Tree's height**: The longest distance from the root of the tree to a leaf (Note: Distance in this case is # of edges in a path)
 - **Unbalanced binary tree**: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
 
