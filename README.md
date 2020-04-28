@@ -82,32 +82,32 @@ A graph without any **undirected cycles** (i.e., cycles that would come about if
 
 ### Four Traverse Algorithms (O(n) worst case)
 - Pre-order (DFS)
-```javascript=
-first visit the current node, 
+```
+1. first visit the current node, 
     then we recurse on the left child (if one exists), 
     and then we recurse on the right child (if one exists)
-VLR (Visit-Left-Right).
+2. VLR (Visit-Left-Right).
 ```
 - In-order (DFS)
-```javascript=
-first recurse on the left child (if one exists), 
+```
+1. first recurse on the left child (if one exists), 
     then we visit the current node, 
     and then we recurse on the right child (if one exists). 
-LVR (Left-Visit-Right).
+2. LVR (Left-Visit-Right).
 ```
 - Post-order (DFS)
-```javascript=
-first recurse on the left child (if one exists), 
+```
+1. first recurse on the left child (if one exists), 
     then we recurse on the right child (if one exists), 
     and then we visit the current node.
-LRV (Left-Right-Visit).
+2. LRV (Left-Right-Visit).
 ```
 - Level-order (BFS)
-```javascript=
-visit nodes level-by-level (where the root is the 
+```
+1. visit nodes level-by-level (where the root is the 
     "first level," its children are the "second level," etc.),
     and on a given level, we visit nodes left-to-right. 
-1st level (left to right). 2nd level(left to right), ...etc
+2. 1st level (left to right). 2nd level(left to right), ...etc
 ```
 ## Binary Search Tree
 
@@ -118,19 +118,19 @@ visit nodes level-by-level (where the root is the
 
 ### Algorithm
 #### BST Find
-```javascript=
-Start at the root
-If query == current => success!
-Otherwise , if query > current, traverse right and go to #2
-Otherwise, if query < current, traverse left and go to #2
-If  you ever try to traverse left/right but no such child exists => fail!    
+```
+1. Start at the root
+2. If query == current => success!
+3. Otherwise , if query > current, traverse right and go to #2
+4. Otherwise, if query < current, traverse left and go to #2
+5. If  you ever try to traverse left/right but no such child exists => fail!    
 ```
 
 #### BST Insert
-```javascript=
-Perform "find" algorithm starting at root
-If "find" succeeds, then duplicate element!
-If "find" doesn't succeed, then insert the new element 
+```
+1. Perform "find" algorithm starting at root
+2. If "find" succeeds, then duplicate element!
+3. If "find" doesn't succeed, then insert the new element 
     at the place where the "find" algorithm fail!
 ```
 
