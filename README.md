@@ -1,6 +1,27 @@
 # data-structure-cheat-sheet
 This cheat sheet helps me to prepare my exams in a [data structures class](https://github.com/djuanit0x/data-structure-cheat-sheet#appendix) and to be my reference later in case I need it in the future. 
 
+# Important Fundamental
+## Time Complexity
+
+### What is it
+- Measurement how fast is your algorithm
+- Algorithm performance in terms of number of operations with respect input size
+
+### Types
+1. Big-O: Upper Bound
+2. Big-$\Omega$: lower bound
+3. Big-$\Theta$: Both upper and lower bound 
+## Space Complexity
+
+## Abstract Data Type
+
+### In Short
+defined by what functions it should be able to perform, but it does not at all describes on how it actually goes about doing those functions (i.e., it's not implementation-specific).
+
+---
+# Data Structures
+
 ## Array List
 ### Complexity
 Time:
@@ -198,12 +219,11 @@ Time:
 - Insert/find/remove: O(logn) -- average case
 
 
-
-## Appendix
-- Tree's height: The longest distance from the root of the tree to a leaf (Note: Distance in this case is # of edges in a path)
-- Balance Factor: Height of right subtree - height of left subtree (BF = rh -lh)
-- A balance binary tree: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
-- Unbalanced binary tree: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
+# Appendix [A-Z]
+- **balance binary tree**: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
+- **Balance Factor**: Height of right subtree - height of left subtree (BF = rh -lh)
+- **Tree's height**: The longest distance from the root of the tree to a leaf (Note: Distance in this case is # of edges in a path)
+- **Unbalanced binary tree**: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
 
 ---
 All notes mainly come from a [data-stucture class](https://ucsd-cse100-s20.github.io/), that I took in spring 2020 and my own experience.
