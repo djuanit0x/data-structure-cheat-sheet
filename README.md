@@ -29,7 +29,7 @@ defined by what functions it should be able to perform, but it does not at all d
 
 ## Array List
 ### Complexity
-Time:
+#### Time:
 - Insertion: O(1) -- unsorted array list
 - Find/Remove: O(N) --  unsorted array list
 - Remove/Insertion: O(N) -- sorted array list
@@ -37,7 +37,7 @@ Time:
 
 ## Linked List
 ### Complexity
-Time:
+#### Time:
 - Insertion: O(1) -- unsorted linked list
 - Insertion: O(N) -- sorted linked list
 - find/remove: O(N) -- sorted + unsorted
@@ -54,7 +54,7 @@ Time:
 [Birthday problem](https://en.wikipedia.org/wiki/Birthday_problem)
 
 ### Complexity
-Time:
+#### Time:
 - Insert/remove/find O(1), but need to fist perform O(k) hash where 'k' is the length of the key -- average case
 - find/insert -- worst case
 
@@ -81,28 +81,28 @@ A graph without any **undirected cycles** (i.e., cycles that would come about if
     - there is no notion of parents or children. Instead, a given node has **neighbors**
 
 ### Four Traverse Algorithms (O(n) worst case)
-- Pre-order (DFS)
+#### Pre-order (DFS)
 ```
 1. first visit the current node, 
     then we recurse on the left child (if one exists), 
     and then we recurse on the right child (if one exists)
 2. VLR (Visit-Left-Right).
 ```
-- In-order (DFS)
+#### In-order (DFS)
 ```
 1. first recurse on the left child (if one exists), 
     then we visit the current node, 
     and then we recurse on the right child (if one exists). 
 2. LVR (Left-Visit-Right).
 ```
-- Post-order (DFS)
+#### Post-order (DFS)
 ```
 1. first recurse on the left child (if one exists), 
     then we recurse on the right child (if one exists), 
     and then we visit the current node.
 2. LRV (Left-Right-Visit).
 ```
-- Level-order (BFS)
+#### Level-order (BFS)
 ```
 1. visit nodes level-by-level (where the root is the 
     "first level," its children are the "second level," etc.),
@@ -116,7 +116,7 @@ A graph without any **undirected cycles** (i.e., cycles that would come about if
 - Every Node is larger than all nodes in its left subtree
 - Every node is smaller than all nodes in its right subtree
 
-### Algorithm
+### Algorithms
 #### BST Find
 ```
 1. Start at the root
@@ -134,10 +134,33 @@ A graph without any **undirected cycles** (i.e., cycles that would come about if
     at the place where the "find" algorithm fail!
 ```
 
-### Complexity
-Time:
-- Find/insert/remove O(logN), assuming self-balancing BST
+#### BST Successor Algorithm
+```
+1. If the node has a right child, traverse right once, then all the way left
+2. Otherwise, traverse up the tree. The first time the current node is 
+    its parent's left child, the parent is our successor.
+```
 
+#### BST Remove Algorithm
+```
+Case 1: No Children
+    Just delete the node
+Case 2: 1 child
+    Just directly connect my child to my parent
+Case 3: 2 children
+    Replace my value with my successor's value, and remove me
+```
+
+### Complexity
+#### Time:
+- Find/insert/remove O(logN), assuming self-balancing BST. 
+- O(n) is the worst case (Perfectly unbalanced tree)
+- O(1) is the best case scenario for "find" n element, when the query is the **root**
+- \# comparison to find a node = depth of that node = Number of nodes in the path from that node to the root
+- Average case time complexity = expected \# operation to find query = expected depth
+
+#### Space: 
+O(n) for BST with n elements
 ## Treap
 
 ### What it is
@@ -156,7 +179,7 @@ Time:
 - It's special type of **treap** where, instead of us supplying both a key and a priority for insertion, we only supply a key, and the priority for the new (key, priority ) pair is **randomly** generated for us
 
 ### Complexity
-Time:
+#### Time:
 - Insertion: O(logN) -- average case
 - Insertion: O(N) -- worst case
 ## AVL Tree
@@ -172,10 +195,10 @@ BST in which every node has Balance factor of 0, -1, or 1
         - Need to apply double AVL rotation to out balance nodes when the shape is a left/right kink shape or not straight line, otherwise just use single AVL rotation 
 
 ### Complexity
-Time:
+#### Time:
 - Insertion: O(logN) -- worst case
 
-## Trie:
+## Trie
 
 ### What it is
 Tree structure in which elements are represented by **paths**
@@ -203,7 +226,7 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
     -  Remove the last node, with the edge containing the last letter of the word that you want to remove. The remove is failed if **the last letter** is not a word or it does not contain the word.
                 
 ### Complexity
-Time:
+#### Time:
 - find/remove/insert: O(n) where n is the length of the longest word -- worst case  
     - Length of longest word = #edges // Worst case scenario for MWT
 
@@ -246,7 +269,7 @@ Time:
     
 
 ### Complexity
-Time:
+#### Time:
 - height: O(logn)
 
 
@@ -283,7 +306,7 @@ Time:
         - Make the last node in the traversal **not a word node**
         - Failed to remove if the find is failed or the last node is not a word node
 ### Complexity
-Time: 
+#### Time: 
 - Insert/find/remove: O(n) -- worst case -- when the word is sorted
     - (length of your alphabet + 1)*length of word // worst case for TST (**need to check**)
 - Insert/find/remove: O(logn) -- average case
@@ -292,7 +315,10 @@ Time:
 # Appendix [A-Z]
 - **balance binary tree**: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
 - **Balance Factor**: Height of right subtree - height of left subtree (BF = rh -lh)
+- **Depth of a Node in BST**: Number of nodes in the path from that node to the root.
 - **Graph**: a collection of nodes (or vertices) and edges connecting these nodes
+- **Height of a node in BST**: Longest distance (#edges) from node to a leaf
+- **Height of a tree in BST**: Height of the root of the tree
 - **Tree's height**: The longest distance from the root of the tree to a leaf (Note: Distance in this case is # of edges in a path)
 - **Unbalanced binary tree**: a tree where many internal nodes have exactly 1 child and/or leaves are not equidistant from the root
 
