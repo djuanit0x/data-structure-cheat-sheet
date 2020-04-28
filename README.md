@@ -50,23 +50,34 @@ defined by what functions it should be able to perform, but it does not at all d
 - Implements the Map ADT
     - Add (key, value) pair to hash table (depends on implementation)
 
+### Should have
+Balance factor (\# empty slots / \#total slots) should be below 0.7 to be considered as a good hash table, otherwise the hash table is a poor design ones.
+### Using Hash Functions
+- A function with:
+    - Input: An object x
+    - Output: An integer representation of x
+    - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
+    - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
+    - Use **prime number** to evenly spread more slots in the hash
+
+### Collision Strategies
+#### Open Addressing (Linear Probing)
+When a collision occurs, linearly move to the next one until you find an empty slot
+#### Double Hashing
+When a collision occurs, calculate the hash function again using the **state** of the hash function after the last insertion + 1(applying linear probing)
+
+**Note**: the design of the second hash function is deterministic (can choose what works best for you) as long as the results are a pretty random spread across the hash tables.
+
+#### Closed Addressing (Seperate Chaining)
+Use linked list when the collision occurs.
+
 ### Examples
 [Birthday problem](https://en.wikipedia.org/wiki/Birthday_problem)
 
 ### Complexity
 #### Time:
 - Insert/remove/find O(1), but need to fist perform O(k) hash where 'k' is the length of the key -- average case
-- find/insert -- worst case
-
-## Hash Functions
-
-### What it is
-- A function with:
-    - Input: An object x
-    - Output: An integer representation of x
-    - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
-    - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
-    - Use **prime number** to evenly spread more slots in the hash table
+- find/remove/insert O(n) -- worst case (a lot of collisions)
 
 ## Tree
 A graph without any **undirected cycles** (i.e., cycles that would come about if we replaced directed edges with undirected edges) nor any unconnected parts, so it's a **connected** graph
