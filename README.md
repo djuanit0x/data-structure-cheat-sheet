@@ -277,7 +277,7 @@ A tree with **BST** properties with every node has Balance factor of 0, -1, or 1
 ## Trie or MWT Tries
 
 ### What it is
-Trie is a tree structure in which elements are represented by **paths**
+Trie is a tree structure in which elements are represented by **paths** and aren't represented by the value of a single node.
 If the tries have more than 2 children, you can call the tries as **Multiway Tries (MWT)**
 
 ### Algorithm
@@ -314,8 +314,9 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
 ```             
 ### Complexity
 #### Time:
-- find/remove/insert: O(n) where n is the length of the longest word -- worst case  
-    - Length of longest word = #edges // Worst case scenario for MWT
+Find/remove/insert: O(k) where k is the length of the longest word -- worst case. 
+
+Note: Length of longest word = #edges // Worst case scenario for MWT
 
 ## Red Black Tree (RBT)
 
@@ -373,33 +374,44 @@ Important Notes:
 ### What it is
 - A type of trie, structured in a fashion similar to **BST**. 
 - Unlike BST, \# children is up to **three children**: a middle child, left child, and right child. 
-- Serves as **a middle-ground between** the BST and the Multiway Trie (MWT) in terms of memory usages and time complexity of operations. 
+- Serves as **a middle-ground between** the BST and the Multiway Trie (MWT) in terms of memory usages and time complexity of operations.
+- Just like in the BST, for every node 'n', the left child of n must have a value less than 'n', and the right child of 'u' must have a value greater than u. The middle child of 'u' represents the next character in the current word. 
 
 ### Algorithm
-1. TST Find:
-    - Steps: 
-        - If current node = root, then c = first letter of query
-        - If c > current node's letter:
-            - Traverse to right child
-        - Else if c < current node's letter:
-            - Traverse to left child
-        - Else: // Equal
-            - If c is the last letter of query and current node is a **word** node:
-                - Success!!!
-            - Else:
-                - Traverse to the middle child and go to the next letter in the query.
-        - **The word is not exist** in the TST tree If you reach here, but can't still find the word.
+#### TST Find
+```
+1. If current node = root, then c = first letter of query
+2. Otherwise if c > current node's letter:
+3.    Traverse to right child
+4. Else if c < current node's letter:
+5.    Traverse to left child
+6. Else: // When it's equal
+7.    If c is the last letter of query and current node is a word node:
+8.        Successful insertion!!
+9.    Else:
+10.       Traverse to the middle child and go to the next letter in the query
 
-2. TST Insert:
-    - Similar to **find** algorithm
-    - When performing TST find algorithm
-        - If you ever need to traverse to a child that does not exist, simply create a new child and traverse to it.
-        - Then, just need make the last node in the traversal a **word** node.
-4. TST Remove:
-    - Similar to **find** algorithm
-        - The difference is after performing TST Find algoritm
-        - Make the last node in the traversal **not a word node**
-        - Failed to remove if the find is failed or the last node is not a word node
+Finally, the word is not exist in the TST tree If you reach here 
+and can't still find the word.
+```
+#### TST Insert
+```
+Similar to find algorithm
+When performing TST find algorithm:
+    - If you ever need to traverse to a child that does not exist, 
+      simply create a new child and traverse to it.
+    - Then, just need make the last node in the traversal a 
+      word node.
+```
+#### TST Remove
+```
+Similar to find algorithm.
+The differences:
+    - After performing TST Find algoritm, 
+      you need to make the last node in the traversal not a word node.
+Failed to remove if the find is failed or the last node is not a word node.
+```
+
 ### Complexity
 #### Time: 
 - Insert/find/remove: O(n) -- worst case -- when the word is sorted
