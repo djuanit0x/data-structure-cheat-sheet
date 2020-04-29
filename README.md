@@ -53,12 +53,12 @@ defined by what functions it should be able to perform, but it does not at all d
 ### Should have
 Balance factor (\# empty slots / \#total slots) should be below 0.7 to be considered as a good hash table, otherwise the hash table is a poor design ones.
 ### Using Hash Functions
-- A function with:
-    - Input: An object x
-    - Output: An integer representation of x
-    - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
-    - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
-    - Use **prime number** to evenly spread more slots in the hash
+#### which is a function with:
+   - Input: An object x
+   - Output: An integer representation of x
+   - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
+   - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
+   - Use **prime number** to evenly spread more slots in the hash
 
 ### Collision Strategies
 #### Open Addressing (Linear Probing)
