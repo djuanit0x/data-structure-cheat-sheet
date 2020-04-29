@@ -143,6 +143,8 @@ A graph without any **undirected cycles** (i.e., cycles that would come about if
 2. If "find" succeeds, then duplicate element!
 3. If "find" doesn't succeed, then insert the new element 
     at the place where the "find" algorithm fail!
+    
+!! insertion order affected the shape of a Binary Search Tree.
 ```
 
 #### BST Successor Algorithm
@@ -291,6 +293,8 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
            then traverse down to that next child edge to continue. 
 5. Finally, the moment you finish inserting a word, 
    you have to mark the last node as a word node.
+
+!! Insertion order does not affect the shape of a MWT/Trie.
 ```
 #### MWT Find
 ```
@@ -398,10 +402,12 @@ and can't still find the word.
 ```
 Similar to find algorithm
 When performing TST find algorithm:
-    - If you ever need to traverse to a child that does not exist, 
+    - If you ever need to traverse to a child (left/right/mid) that does not exist, 
       simply create a new child and traverse to it.
     - Then, just need make the last node in the traversal a 
       word node.
+
+!! Insertion order affected the shape of a TST. 
 ```
 #### TST Remove
 ```
@@ -417,6 +423,7 @@ Failed to remove if the find is failed or the last node is not a word node.
 - Insert/find/remove: O(n) -- worst case -- when the word is sorted
     - (length of your alphabet + 1)*length of word // worst case for TST (**need to check**)
 - Insert/find/remove: O(logn) -- average case
+- Insert: O(K), where k is the length of the longest word--every node is a word node -- Best case
 
 
 # Appendix [A-Z]
