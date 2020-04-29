@@ -232,7 +232,7 @@ Pop (assuming it's a max-heap)
 ### Ramdomized Search Tree
 - It's special type of **treap** where, instead of us supplying both a key and a priority for insertion, we only supply a key, and the priority for the new (key, priority ) pair is **randomly** generated for us
 
-#### Algoritm
+#### Algorithm
 ##### find
 ```
 perform BST find based on key
@@ -257,14 +257,18 @@ perform Treap remove based on key
 ## AVL Tree
 
 ### What it is
-BST in which every node has Balance factor of 0, -1, or 1
+A tree with **BST** properties with every node has Balance factor of 0, -1, or 1.
 
 ### Algorithm
-1. AVL tree Insertion:
-    - Regular BST insertion
-    - Update Balance Factors
-    - Fix broken balance factors using AVL rotations
-        - Need to apply double AVL rotation to out balance nodes when the shape is a left/right kink shape or not straight line, otherwise just use single AVL rotation 
+#### AVL tree Insertion
+```
+1. Regular BST insertion
+2. Update Balance Factors
+3. If the balance factors > 1 or < -1, then fix broken balance factors using AVL rotations
+    Note: need to apply double AVL rotation to out balance nodes
+    when the shape is a left/right kink shape or not straight line, 
+    otherwise just use single AVL rotation.
+```
 
 ### Complexity
 #### Time:
@@ -319,26 +323,34 @@ If the tries have more than 2 children, you can call the tries as **Multiway Tri
  - It's not an AVL Tree (red black tree != AVL tree) -- You may get invalid AVL tree when constructing the tree from red black tree
 
 ### Algorithm
-1. Red black tree tree Insertion:
-    - In general cases:
-        - Perform regular BST insertion
-            - If you see a black node w/ 2 red children, recolor all 3: 1 red parent w/ 2 black children.
-                - if the parent is the root, color it black
-        - Color new node **red**
-        - Potentially fix tree for red black tree properties
-    - 1st case: empty tree
-        - Insert the new node as the root
-        - Color it black
-    - 2nd case: child of black node
-        - Just insert. No need to change anything
-    - 3rd case: Child of red node, **straight line**
-        - Insert -> single (left/right) AVL rotation w/ grand parent node -> recolor
-    - 4nd case: Child of red node, kink shape
-        - Rotate to make straight line, then do **straight line insertion case (3rd case)** 
-    - Important Notes
-        - Only coloring when traversing to insert the tree -- fixing the tree color only the way down.
-        - When inserting a node, nodes with invalid color do not have to be fixed or recolor if the nodes are not visited
-    
+#### Red Black Insertion
+```
+In general cases:
+    Perform regular BST insertion
+    If you see a black node w/ 2 red children, 
+        recolor all 3: 1 red parent w/ 2 black children.
+    If the parent is the root, 
+        color it black
+    Always color the new node 'red'
+    Potentially need to fix tree if the tree has invalid RBT roperties
+```
+```
+4 cases of insertion algorithm
+1st case: empty tree
+    Insert the new node as the root
+    Color it black
+2nd case:child of black node
+    Just insert. No need to change anything!
+3nd case: Child of red node, **straight line**
+    Insert -> single (left/right) AVL rotation w/ grand parent node -> recolor
+4nd case: Child of red node, 'kink' shape
+    Rotate to make straight line, 
+    then do **straight line insertion case (3rd case)** 
+Important Notes:
+    1. Only coloring when traversing to insert the tree--fixing the tree color only the way down.
+    2. When inserting a node, nodes with invalid color 
+       do not have to be fixed or recolor if the nodes are not visited
+```
 
 ### Complexity
 #### Time:
