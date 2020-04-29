@@ -172,7 +172,49 @@ Case 3: 2 children
 
 #### Space: 
 O(n) for BST with n elements
-## Treap
+
+## Priority Queue
+Considered a **Highest Priority, First Out**(HPIFO) data type -- The highest priority element currently in the Priority Queue is the first one to be removed.
+
+### ADT in C++
+- insert(element): Add element to the Priority Queue
+- peek(): Look at the highest priority element in the Priority Queue
+- pop(): Remove the highest priority element from the Priority Queue
+
+## Heap
+-  A tree that satisfies the Heap Property: For all nodes A and B﻿, if node A is the parent of node B, then node A has higher priority (or equal priority) than node B.
+- Typically implements Priority Queue ADT that guarantees O(1) peeking and O(log n) insertion and removal in the worst case.
+
+### Binary Heap
+Heap that are binary trees with three contraints:
+- **Binary Tree Property**: All nodes in the tree must have either 0, 1, or 2 children
+- **Heap Property**: For all nodes A and B﻿, if node A is the parent of node B, then node A has higher priority (or equal priority) than node B.
+- **Shape Property**: A heap is a complete tree. In other words, all levels of the tree, except possibly the bottom one, are fully filled, and, if the last level of the tree is not complete, the nodes of that level are filled from left to right
+
+#### Types of Binary Heap
+- **A min-heap** is a heap where every node is smaller than (or equal to) all of its children (or has no children). 
+- **A max-heap** is a heap where every node is larger than (or equal to) all of its children (or has no children). 
+
+#### Algorithm
+Insert (assuming it's a max-heap )
+```
+1. place element in next open slot (as defined by a "complete tree")
+2. while element has a parent and element.priority > element.parent.priority:
+3.     swap element and element.parent
+```
+Pop (assuming it's a max-heap)
+```
+1. replace the root with the rightmost element of the bottom level of the tree (call it "curr")
+2. while curr is not a leaf and curr has lower priority than any of its children:
+3.    swap curr and its highest-priority child
+```
+
+#### Complexity
+##### Time:
+- **Insert/Pop** is O(log n) as the shape the Binary heap are guaranteed perfectly balanced binary tree
+- O(1) worst-case time complexity for **peeking** at the highest-priority element.
+    
+## Treap 
 
 ### What it is
 - tree + heap
@@ -182,17 +224,36 @@ O(n) for BST with n elements
 - The heap propery of any nodes must be larger than all priorities below
 
 ### Algorithm
-1. Treap Insertion
-    - Insert via BST insertion algoritm with respect to keys
-    - Use AVL rotations to "bubble up" to fix heap with respect to priorities
-
-## Ramdomized Search Tree
+#### Treap Insertion
+``` 
+1. Insert via BST insertion algoritm with respect to keys
+2.    Use AVL rotations to "bubble up" to fix heap with respect to priorities
+```
+### Ramdomized Search Tree
 - It's special type of **treap** where, instead of us supplying both a key and a priority for insertion, we only supply a key, and the priority for the new (key, priority ) pair is **randomly** generated for us
+
+#### Algoritm
+##### find
+```
+perform BST find based on key
+```
+##### insert
+```
+1. priority = randomly generated integer
+2. perform Treap insert based on (key, priority)
+```
+
+##### remove
+```
+perform Treap remove based on key
+```
+
+
 
 ### Complexity
 #### Time:
 - Insertion: O(logN) -- average case
-- Insertion: O(N) -- worst case
+- Insertion: O(N) -- worst case (Linked list)
 ## AVL Tree
 
 ### What it is
