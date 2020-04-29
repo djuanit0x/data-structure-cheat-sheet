@@ -120,7 +120,7 @@ A graph without any **undirected cycles** (i.e., cycles that would come about if
     and on a given level, we visit nodes left-to-right. 
 2. 1st level (left to right). 2nd level(left to right), ...etc
 ```
-## Binary Search Tree
+## Binary Search Tree (BST)
 
 ### Properties
 - Rooted Binary Tree (Tree w/ 0, 1, or 2 children)
@@ -217,7 +217,7 @@ Pop (assuming it's a max-heap)
 ## Treap 
 
 ### What it is
-- tree + heap
+- Tree + Heap
 - BST with respect to **keys**
     - For any nodes the keys are larger than all keys in the left subtree and smaller than all keys in the right subtree
 - Heap property with respect to priorities
@@ -256,7 +256,7 @@ perform Treap remove based on key
 - Insertion: O(N) -- worst case (Linked list)
 ## AVL Tree
 
-### What it is
+### In a Nutshell
 A tree with **BST** properties with every node has Balance factor of 0, -1, or 1.
 
 ### Algorithm
@@ -274,39 +274,50 @@ A tree with **BST** properties with every node has Balance factor of 0, -1, or 1
 #### Time:
 - Insertion: O(logN) -- worst case
 
-## Trie
+## Trie or MWT Tries
 
 ### What it is
-Tree structure in which elements are represented by **paths**
-If the tries have more than 2 children, you can call the tries as **Multiway Tries**
+Trie is a tree structure in which elements are represented by **paths**
+If the tries have more than 2 children, you can call the tries as **Multiway Tries (MWT)**
 
 ### Algorithm
 
-- Multiway Tries insertion:
-    - Start at root node, and for each letters for the word that you want to insert. 
-        - Check if the current node has a child edge label by that letter. 
-            - if it does not.
-                - I need to create a new child edge labeled by that letter, then traverse down to that next child edge to continue. 
-            - Finally, the moment you finish inserting a word, you have to mark the last node as a word node.
-- Multiway Tries find:
-    - Start at root node, and for each letters for the word that you want to find. 
-        - need to check does my current node have a child edge labeled by that letter 
-            - If it does, traverse it until the last letter to iterate.
-            - If it doesn't, it fails to find the world -- the word does not exists in the tries.
-    - return true if you manage to find the word at **the last letter**, otherwise returns false
- - Multiway Tries remove:
-    - Start at root node, and for each letters for the word that you want to remove. 
-        - need to check does my current node have a child edge labeled by that letter 
-            - If it does, traverse it until the last letter to iterate.
-            - If it doesn't, it fails to remove the world -- the word does not exists in the tries.
-    -  Remove the last node, with the edge containing the last letter of the word that you want to remove. The remove is failed if **the last letter** is not a word or it does not contain the word.
-                
+#### MWT Insertion
+```
+1. Start at root node, and for each letters for the word that you want to insert. 
+2. Check if the current node has a child edge label by that letter. 
+3.    If it does not
+4.         I need to create a new child edge labeled by that letter, 
+           then traverse down to that next child edge to continue. 
+5. Finally, the moment you finish inserting a word, 
+   you have to mark the last node as a word node.
+```
+#### MWT Find
+```
+1. Start at root node, and for each letters for the word that you want to find.
+2. Need to check does my current node have a child edge labeled by that letter .
+3.    If it does, traverse it until the last letter to iterate.
+4.    If it doesn't, it fails to find the world--the word does not exists in the MWT.
+5. return true if you manage to find the word at **the last letter**, 
+   otherwise returns false
+```
+#### MWT Remove
+```
+1. Start at root node, and for each letters for the word that you want to remove. 
+2. Need to check does my current node have a child edge labeled by that letter
+3.    If it does, traverse it until the last letter to iterate.
+4.    If it doesn't, it fails to remove the world -- the word does not exists in the tries.
+5. Remove the last node, with the edge containing 
+   the last letter of the word that you want to remove.  
+6. Finally, the remove is failed if **the last letter** 
+   is not a word or it does not contain the word.
+```             
 ### Complexity
 #### Time:
 - find/remove/insert: O(n) where n is the length of the longest word -- worst case  
     - Length of longest word = #edges // Worst case scenario for MWT
 
-## Red Black Tree
+## Red Black Tree (RBT)
 
 
 ### What it is
