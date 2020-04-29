@@ -325,18 +325,15 @@ Note: Length of longest word = #edges // Worst case scenario for MWT
 ## Red Black Tree (RBT)
 
 
-### What it is
+### It's a **BST** with following characteristic:
+1. All nodes must red or black. The root node must be a black. Null reference is a black node.
+2. If a node is red, then all of its children must be black.However, it is possible for black node to have red / black children. 
+    - Need to switch color if parent is black and all of children are red. In other words, do AVL rotation + coloring if the parent is red and its children are red.
+3. Can't have a red node w/ red children (red -> red). Do AVL rotation if this happens.
+4. For every node **n**, every possible path from **n** to a null refference (does not point to anything) must have the same # black nodes.
 
- - It's a **BST** with following characteristic:
-    1. All nodes must red or black
-    2. The root must be black
-    3. If a node is red, then all of its children must be black. That's why it's not possible to have red node w/ red children (red -> red). However, it is possible for black node to have red / black children. 
-        - Need to switch color if parent is black and all of children are red
-        - If the parent is red and its children are red do AVL rotation + coloring
-    4. For every node **n**, every possible path from **n** to a null refference (does not point to anything) must have the same # black nodes
-    5. null refference must be a black node
-    
- - It's not an AVL Tree (red black tree != AVL tree) -- You may get invalid AVL tree when constructing the tree from red black tree
+
+Note: Red black tree != AVL tree--It's possible to get invalid AVL tree when constructing the tree from red black tree.
 
 ### Algorithm
 #### Red Black Insertion
