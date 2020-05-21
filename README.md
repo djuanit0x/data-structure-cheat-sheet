@@ -425,10 +425,12 @@ Failed to remove if the find is failed or the last node is not a word node.
 ## Graph
 
 ## BFS (Breadth First Search)
+- Uses to traverse or search tree or graph data structures
+- Implement with queue
 
 ### Algorithm
 ```
-1. Add (0, start) to the queue
+1. Add (0, startNode) to the queue
 2. While the queue is not empty
     pop (d, current) from the queue
     if current has not been visited:
@@ -441,10 +443,12 @@ Failed to remove if the find is failed or the last node is not a word node.
 O(lVl + lEl) where V is the # of vertices for initializing it and E is the # of edges
 
 ## DFS (Depth First Search)
+- Uses to traverse or search tree or graph data structures
+- Implement with stack
 
 ### Algorithm
 ```
-1. Add start to the stack
+1. Add startNode to the stack
 2. While the stack is not empty
     pop current from the stack
     if current has not been visited:
@@ -456,7 +460,30 @@ O(lVl + lEl) where V is the # of vertices for initializing it and E is the # of 
 ### Time Complexity
 O(lVl + lEl) where V is the # of vertices for initializing it and E is the # of edges
 
-### Algorithm
+# Special Algorithms
+
+## Dijkstra's Algoritm
+- Uses to find a shortest paths between nodes in graph.
+- Edge weight can't be negative.
+- Implement with priority queue
+```
+1. Set all nodes' distances to infinity and startNode's to 0
+2. Add (0, startNode) to priority queue with 0 as the distance
+3. While the priority queue is not empty:
+    Pop(d, current) from priority queue
+    If current is not done
+    Mark current as done
+    For all edges (current, endNode, edge) 
+        if d + edge < endNode's distance
+            endNode's distance = d + edge
+            endNode's previous node is current
+            Add (d + edge, endNode's) to priority queue
+```
+
+### Time Complexity
+O(lVl + lEl*log lEl) where lVl is the # of vertices at 1 step in the algorithm. While lEl and log lEl terms caomes from the # of edges used to add and remove to the priority queue respectively.
+
+
 
 # Appendix [A-Z]
 - **balance binary tree**: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
