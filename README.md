@@ -53,12 +53,12 @@ defined by what functions it should be able to perform, but it does not at all d
 ### Should have
 Balance factor (\# empty slots / \#total slots) should be below 0.7 to be considered as a good hash table, otherwise the hash table is a poor design ones.
 ### Using Hash Functions
-#### which is a function with:
-   - Input: An object x
-   - Output: An integer representation of x
-   - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
-   - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
-   - Use **prime number** to evenly spread more slots in the hash
+- A function with:
+    - Input: An object x
+    - Output: An integer representation of x
+    - **Property of Equality**:  If x is equal to y, h(x) must equal h(y)
+    - **Property of Inequality**: If x is not equal to y, it would be nice (but not neccessary) if h(x) was not equal to h(y)
+    - Use **prime number** to evenly spread more slots in the hash
 
 ### Collision Strategies
 #### Open Addressing (Linear Probing)
@@ -422,6 +422,41 @@ Failed to remove if the find is failed or the last node is not a word node.
 - Insert/find/remove: O(logn) -- average case
 - Insert: O(K), where k is the length of the longest word--every node is a word node -- Best case
 
+## Graph
+
+## BFS (Breadth First Search)
+
+### Algorithm
+```
+1. Add (0, start) to the queue
+2. While the queue is not empty
+    pop (d, current) from the queue
+    if current has not been visited:
+        Mark current as visited with distance d
+        for all edges (current, next):
+            if next has not been visited, add (d + 1, next) to the queue
+```
+
+### Time Complexity
+O(lVl + lEl) where V is the # of vertices for initializing it and E is the # of edges
+
+## DFS (Depth First Search)
+
+### Algorithm
+```
+1. Add start to the stack
+2. While the stack is not empty
+    pop current from the stack
+    if current has not been visited:
+        Mark current as visited
+        for all edges (current, next):
+            if next has not been visited, add next to the stack
+```
+
+### Time Complexity
+O(lVl + lEl) where V is the # of vertices for initializing it and E is the # of edges
+
+### Algorithm
 
 # Appendix [A-Z]
 - **balance binary tree**: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
