@@ -483,8 +483,38 @@ O(lVl + lEl) where V is the # of vertices for initializing it and E is the # of 
 ### Time Complexity
 O(lVl + lEl*log lEl) where lVl is the # of vertices at 1 step in the algorithm. While lEl and log lEl terms caomes from the # of edges used to add and remove to the priority queue respectively.
 
+## Spanning Trees
+
+### Requirements
+- Contains all nodes of Graph
+- Contains a subset of the edges of Graph
+- It is a tree that has no cycles
+- Is is a connected tree
+
+### Algorithm to get a minimum spanning tree
+#### Prim's Algorithm
+```
+1. Start at any node
+2. Repeat |#vertices| - 1 times
+    Find the smallest-weight edge(sourceVertice, destinationVertice, weight)
+    - Such that sourceVertice is in your growing MST and destinationVertice isn't.
+    - Add the edge(sourceVertice, destinationVertice, weight) to your
+      growing MST
+```
+
+#### Kruskal's Algorithm
+```
+1. Repeat |#Edges| times:
+    - Find the smallest-weight edge(source, dest, weight)
+      such that adding it to your growing subgraph will not cause a cycle.
+    - Add the edge to your growing subgraph.
+```
+Note: can the actual MST before iterating |#Edges| times.
 
 
+### Time Complexity
+- For Prim's: O(|E|log|E|) where log|E| term comes from add/remove edge to PQueue implemented as a heap and |E| is |E|
+- For Kruskal's: O(|E|log|E|) where log|E| uses for sorting and |E| is #edges.
 # Appendix [A-Z]
 - **balance binary tree**: a tree where most leaves are equidistant from the root and most internal nodes have 2 children
 - **Balance Factor**: Height of right subtree - height of left subtree (BF = rh -lh)
