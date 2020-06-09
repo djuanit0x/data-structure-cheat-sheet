@@ -27,20 +27,6 @@ defined by what functions it should be able to perform, but it does not at all d
 ---
 # Data Structures
 
-## Array List
-### Complexity
-#### Time:
-- Insertion: O(1) -- unsorted array list
-- Find/Remove: O(N) --  unsorted array list
-- Remove/Insertion: O(N) -- sorted array list
-- Find: O(logN) -- sorted array list
-
-## Linked List
-### Complexity
-#### Time:
-- Insertion: O(1) -- unsorted linked list
-- Insertion: O(N) -- sorted linked list
-- find/remove: O(N) -- sorted + unsorted
 
 ## Hash Table
 
